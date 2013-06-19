@@ -28,6 +28,21 @@ class IResource(form.Schema, IImageScaleTraversable):
     """
     Resources and References
     """
-    pass
 
+    title = schema.TextLine(title=u'Name', 
+                         description=u'Name of resource.')
+
+    description = schema.Text(title=u'Description',
+                                  description=u'Brief description '
+                                  'of resource.'
+                                  )
+    resource_type= schema.Choice(
+        title=_(u'Type'),
+        vocabulary = "edirap.resource.types"
+    )
+
+    economy = schema.Choice(
+        title=_(u'Economy'),
+        vocabulary = "ploneun.vocabularies.countries.asiapacific"
+    )
 
